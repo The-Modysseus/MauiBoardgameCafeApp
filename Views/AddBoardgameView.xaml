@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiBoardgameCafeApp.Views.AddBoardgameView"
              Title="AddBoardgameView">
+    
     <VerticalStackLayout BackgroundColor="LightYellow">
         <Label Text="Tilføj et brætspil"
                TextColor="Black"
@@ -18,41 +19,55 @@
                 <Entry Grid.Row="0"
                        Grid.Column="0"
                        Placeholder="Navn"
+                       BackgroundColor="Black"
+                       TextColor="White"
                        Text="{Binding NewName}">
                 </Entry>
                 <Entry Grid.Row="0"
                        Grid.Column="1"
                        Placeholder="Udgivelsesår"
+                       BackgroundColor="Black"
+                       TextColor="White"
                        Text="{Binding NewPublicationYear}">
                 </Entry>
                 <Entry Grid.Row="1"
                        Grid.Column="0"
                        Placeholder="Minimum antal spillere"
+                       BackgroundColor="Black"
+                       TextColor="White"
                        Text="{Binding NewPlayersMin}">
                 </Entry>
                 <Entry Grid.Row="1"
                        Grid.Column="1"
                        Placeholder="Maximum antal spillere"
+                       BackgroundColor="Black"
+                       TextColor="White"
                        Text="{Binding NewPlayersMax}">
                 </Entry>
                 <Entry Grid.Row="2"
                        Grid.Column="0"
                        Placeholder="Antal ledige"
+                       BackgroundColor="Black"
+                       TextColor="White"
                        Text="{Binding NewCountAvailable}">
                 </Entry>
                 <Entry Grid.Row="2"
                        Grid.Column="1"
                        Placeholder="Antal udlånt"
+                       BackgroundColor="Black"
+                       TextColor="White"
                        Text="{Binding NewCountInUse}">
                 </Entry>
                 <Editor Grid.Row="3"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="2"
-                       Placeholder="Beskrivelse"
-                       Text="{Binding NewDescription}">
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Placeholder="Beskrivelse"
+                        BackgroundColor="Black"
+                        TextColor="White"
+                        Text="{Binding NewDescription}">
                 </Editor>
-                <Button Grid.Column="4"
-                        Grid.Row="0"
+                <Button Grid.Row="4"
+                        Grid.Column="0"
                         Text="Tilføj"
                         SemanticProperties.Description="Tilføj"
                         Command="{Binding AddBoardgameCommand}">
@@ -64,8 +79,8 @@
                         </Shadow>
                     </Button.Shadow>
                 </Button>
-                <Button Grid.Column="4"
-                        Grid.Row="1"
+                <Button Grid.Row="4"
+                        Grid.Column="1"
                         Text="Afbryd"
                         SemanticProperties.Description="Afbryd"
                         Command="{Binding CancelCommand}">

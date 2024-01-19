@@ -24,15 +24,15 @@ namespace MauiBoardgameCafeApp.ViewModels
 		#region New values
 		public string NewName { get; set; } = string.Empty;
 		public string NewDescription { get; set; } = String.Empty;
-		public int NewPublicationYear { get; set; }
-		public int NewPlayersMin { get; set; }
-		public int NewPlayersMax { get; set; }
+		public string NewPublicationYear { get; set; }
+		public string NewPlayersMin { get; set; }
+		public string NewPlayersMax { get; set; }
 		public string NewPlayTime { get; set; } 
-		public int NewMinimumAge { get; set; }
-		public int NewCountAvailable { get; set; }
-		public int NewCountInUse { get; set; }
-		public int[] NewRatings { get; set; } = Array.Empty<int>();
-		public int NewCountRatings { get; set; } = 0;
+		public string NewMinimumAge { get; set; }
+		public string NewCountAvailable { get; set; }
+		public string NewCountInUse { get; set; }
+		public string[] NewRatings { get; set; } = Array.Empty<string>();
+		public string NewCountRatings { get; set; } = "0";
 		#endregion
 
 		//public ObservableCollection<Boardgame> BoardgameList { get; set; } = new();
@@ -60,7 +60,7 @@ namespace MauiBoardgameCafeApp.ViewModels
 		[RelayCommand]
 		public async Task AddBoardgame()
 		{
-			var newBoardgame = new Boardgame
+            var newBoardgame = new Boardgame
 			{
 				Name = NewName,
 				Description = NewDescription,
@@ -80,13 +80,13 @@ namespace MauiBoardgameCafeApp.ViewModels
 				BoardgameList.Add(newBoardgame);
 				NewName = string.Empty;
 				NewDescription = string.Empty;
-				NewPublicationYear = 0;
-				NewPlayersMin = 0;
-				NewPlayersMax = 0;
+				NewPublicationYear = string.Empty;
+				NewPlayersMin = string.Empty;
+				NewPlayersMax = string.Empty;
 				NewPlayTime = string.Empty;
-				NewMinimumAge = 0;
-				NewCountAvailable = 0;
-				NewCountInUse = 0;
+				NewMinimumAge = string.Empty;
+				NewCountAvailable = string.Empty;
+				NewCountInUse = string.Empty;
             }
 			await Application.Current.MainPage.Navigation.PopAsync();
         }

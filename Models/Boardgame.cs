@@ -15,15 +15,15 @@ namespace MauiBoardgameCafeApp.Models
 		public int Id { get; set; }
 		public string Name { get; set; }
 		public string Description { get; set; }
-		public int PublicationYear { get; set; }
-		public int PlayersMin { get; set; }
-		public int PlayersMax { get; set; }
+		public string PublicationYear { get; set; }
+		public string PlayersMin { get; set; }
+		public string PlayersMax { get; set; }
 		public string PlayTime { get; set; }
-		public int MinimumAge { get; set; }
-		public int CountAvailable { get; set; }
-		public int CountInUse { get; set; }
-		public int[] Ratings { get; set; }
-		public int CountRatings { get; set; }
+		public string MinimumAge { get; set; }
+		public string CountAvailable { get; set; }
+		public string CountInUse { get; set; }
+		public string[] Ratings { get; set; }
+		public string CountRatings { get; set; }
 
 
 		#region INotifyPropertyChanged

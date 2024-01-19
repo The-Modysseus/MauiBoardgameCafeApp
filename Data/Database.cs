@@ -8,8 +8,10 @@ using SQLite;
 
 namespace MauiBoardgameCafeApp.Data
 {
-	internal class Database
+	public class Database
 	{
+		private static readonly Lazy<Database> instance = new Lazy<Database>(() => new Database());
+		public static Database Instance => instance.Value;
 		private readonly SQLiteAsyncConnection _connection;
 
 		public Database()
@@ -31,6 +33,13 @@ namespace MauiBoardgameCafeApp.Data
 			_connection = new SQLiteAsyncConnection(dbOptions);
 
 			_ = Initialise();
+		}
+
+		public static async Task<Database> CreateAsync()
+		{
+			var database = new Database();
+			await database.Initialise();
+			return database;
 		}
 
 		private async Task Initialise()

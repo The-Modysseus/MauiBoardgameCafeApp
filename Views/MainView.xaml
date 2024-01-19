@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiBoardgameCafeApp.MainView"
+             xmlns:viewModel="clr-namespace:MauiBoardgameCafeApp.ViewModels"
+             x:DataType="viewModel:MainViewModel">
+
+    <VerticalStackLayout BackgroundColor="LightYellow"
+                         Padding="15">
+        <Label Text="Mo's brætspilcafé"
+               TextColor="Black"
+               FontSize="Title"
+               SemanticProperties.HeadingLevel="Level1"
+               SemanticProperties.Description="Mo's brætspilcafé"
+               HorizontalTextAlignment="Center"
+               Margin="15">
+        </Label>
+        <Button Text="Se brætspil"
+                SemanticProperties.Description="Button that navigates to the see boardgames page">
+            <Button.Shadow>
+                <Shadow Brush="Black"
+                        Offset="5,5"
+                        Radius="10"
+                        Opacity="0.5">
+                </Shadow>
+            </Button.Shadow>
+        </Button>
+        <Button Text="Opret brætspil"
+                SemanticProperties.Description="Button that navigates to the add boardgame page"
+                Command="{Binding ShowCreateBoardgamePageCommand}">
+            <Button.Shadow>
+                <Shadow Brush="Black"
+                Offset="5,5"
+                Radius="10"
+                Opacity="0.5">
+                </Shadow>
+            </Button.Shadow>
+        </Button>
+        <Button Text="Rediger lånstatus af et brætspil"
+                SemanticProperties.Description="Button that navigates to the see edit loan status of boardgame page">
+            <Button.Shadow>
+                <Shadow Brush="Black"
+                Offset="5,5"
+                Radius="10"
+                Opacity="0.5">
+                </Shadow>
+            </Button.Shadow>
+        </Button>
+        <Button Text="Vurder brætspil"
+                SemanticProperties.Description="Button that navigates to the see edit rate boardgame page">
+            <Button.Shadow>
+                <Shadow Brush="Black"
+                        Offset="5,5"
+                        Radius="10"
+                        Opacity="0.5">
+                </Shadow>
+            </Button.Shadow>
+        </Button>
+    </VerticalStackLayout>
+</ContentPage>

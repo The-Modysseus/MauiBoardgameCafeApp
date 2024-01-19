@@ -1,4 +1,6 @@
-﻿namespace MauiBoardgameCafeApp
+﻿using MauiBoardgameCafeApp.Views;
+
+namespace MauiBoardgameCafeApp
 {
 	public partial class App : Application
 	{
@@ -6,7 +8,7 @@
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+			MainPage = new NavigationPage(new MainView());
 		}
 	}
 }

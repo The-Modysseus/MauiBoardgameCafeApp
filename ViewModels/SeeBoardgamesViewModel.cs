@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MauiBoardgameCafeApp.Views;
 using MauiBoardgameCafeApp.Models;
 using MauiBoardgameCafeApp.Data;
 using System.Collections.ObjectModel;
@@ -12,21 +11,21 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace MauiBoardgameCafeApp.ViewModels
 {
-    public partial class MainViewModel : ObservableObject
-    {
+	public partial class SeeBoardgamesViewModel
+	{
 		protected readonly Database _database;
 
-		public MainViewModel() 
+		public SeeBoardgamesViewModel() 
 		{
 			_database = Database.Instance;
-			_ = Initialize();
 		}
 
 		public ObservableCollection<Boardgame> BoardgameList { get; set; } = new();
-
-		private async Task Initialize()
+		
+		public async Task ReloadData()
 		{
 			var boardgames = await _database.GetBoardgames();
+			BoardgameList.Clear();
 			foreach (var boardgame in boardgames)
 			{
 				BoardgameList.Add(boardgame);
@@ -35,15 +34,9 @@ namespace MauiBoardgameCafeApp.ViewModels
 
 		#region Methods
 		[RelayCommand]
-		private async Task ShowAddBoardgamePage()
+		private async Task ShowMainPage()
 		{
-			await Application.Current.MainPage.Navigation.PushAsync(new AddBoardgameView());
-		}
-
-		[RelayCommand]
-		private async Task ShowSeeBoardgamesPage()
-		{
-			await Application.Current.MainPage.Navigation.PushAsync(new SeeBoardgamesView());
+			await Application.Current.MainPage.Navigation.PopAsync();
 		}
 		#endregion
 	}

@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiBoardgameCafeApp.Views.AddBoardgameView"
-             Title="AddBoardgameView">
+             Title="AddBoardgameView"
+             xmlns:viewModel="clr-namespace:MauiBoardgameCafeApp.ViewModels"
+             x:DataType="viewModel:AddBoardgameViewModel">
     
     <VerticalStackLayout BackgroundColor="LightYellow">
         <Label Text="Tilføj et brætspil"
@@ -14,7 +16,7 @@
                Margin="15">
         </Label>
         <ScrollView>
-            <Grid RowDefinitions="*, *, *, * ,*"
+            <Grid RowDefinitions="*, *, *, * ,*, *"
                   ColumnDefinitions="*, *">
                 <Entry Grid.Row="0"
                        Grid.Column="0"
@@ -46,19 +48,33 @@
                 </Entry>
                 <Entry Grid.Row="2"
                        Grid.Column="0"
+                       Placeholder="Forventet spilletid"
+                       BackgroundColor="Black"
+                       TextColor="White"
+                       Text="{Binding NewPlayTime}">
+                </Entry>
+                <Entry Grid.Row="2"
+                       Grid.Column="1"
+                       Placeholder="Minimumsalder"
+                       BackgroundColor="Black"
+                       TextColor="White"
+                       Text="{Binding NewMinimumAge}">
+                </Entry>
+                <Entry Grid.Row="3"
+                       Grid.Column="0"
                        Placeholder="Antal ledige"
                        BackgroundColor="Black"
                        TextColor="White"
                        Text="{Binding NewCountAvailable}">
                 </Entry>
-                <Entry Grid.Row="2"
+                <Entry Grid.Row="3"
                        Grid.Column="1"
                        Placeholder="Antal udlånt"
                        BackgroundColor="Black"
                        TextColor="White"
                        Text="{Binding NewCountInUse}">
                 </Entry>
-                <Editor Grid.Row="3"
+                <Editor Grid.Row="4"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
                         Placeholder="Beskrivelse"
@@ -66,7 +82,7 @@
                         TextColor="White"
                         Text="{Binding NewDescription}">
                 </Editor>
-                <Button Grid.Row="4"
+                <Button Grid.Row="5"
                         Grid.Column="0"
                         Text="Tilføj"
                         SemanticProperties.Description="Tilføj"
@@ -79,7 +95,7 @@
                         </Shadow>
                     </Button.Shadow>
                 </Button>
-                <Button Grid.Row="4"
+                <Button Grid.Row="5"
                         Grid.Column="1"
                         Text="Afbryd"
                         SemanticProperties.Description="Afbryd"

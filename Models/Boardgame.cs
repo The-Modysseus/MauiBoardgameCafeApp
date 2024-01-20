@@ -22,7 +22,7 @@ namespace MauiBoardgameCafeApp.Models
 		public string MinimumAge { get; set; }
 		public string CountAvailable { get; set; }
 		public string CountInUse { get; set; }
-		public string[] Ratings { get; set; }
+		public int LatestRating { get; set; }
 		public string CountRatings { get; set; }
 
 

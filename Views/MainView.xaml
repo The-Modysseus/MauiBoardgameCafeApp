@@ -16,7 +16,8 @@
                Margin="15">
         </Label>
         <Button Text="Se brætspil"
-                SemanticProperties.Description="Button that navigates to the see boardgames page">
+                SemanticProperties.Description="Button that navigates to the see boardgames page"
+                Command="{Binding ShowSeeBoardgamesPageCommand}">
             <Button.Shadow>
                 <Shadow Brush="Black"
                         Offset="5,5"
@@ -27,7 +28,7 @@
         </Button>
         <Button Text="Opret brætspil"
                 SemanticProperties.Description="Button that navigates to the add boardgame page"
-                Command="{Binding ShowCreateBoardgamePageCommand}">
+                Command="{Binding ShowAddBoardgamePageCommand}">
             <Button.Shadow>
                 <Shadow Brush="Black"
                 Offset="5,5"

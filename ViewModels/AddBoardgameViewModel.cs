@@ -15,15 +15,15 @@ namespace MauiBoardgameCafeApp.ViewModels
 {
     public partial class AddBoardgameViewModel : MainViewModel
     {
-		//protected readonly Database _database;
+		protected readonly Database _database;
 		public AddBoardgameViewModel() 
 		{
-			//_database = Database.Instance;
-			//_ = Initialize();
+			_database = Database.Instance;
 		}
+
 		#region New values
-		public string NewName { get; set; } = string.Empty;
-		public string NewDescription { get; set; } = String.Empty;
+		public string NewName { get; set; }
+		public string NewDescription { get; set; }
 		public string NewPublicationYear { get; set; }
 		public string NewPlayersMin { get; set; }
 		public string NewPlayersMax { get; set; }
@@ -31,32 +31,13 @@ namespace MauiBoardgameCafeApp.ViewModels
 		public string NewMinimumAge { get; set; }
 		public string NewCountAvailable { get; set; }
 		public string NewCountInUse { get; set; }
-		public string[] NewRatings { get; set; } = Array.Empty<string>();
+		public int NewLatestRating { get; set; }
 		public string NewCountRatings { get; set; } = "0";
 		#endregion
 
-		//public ObservableCollection<Boardgame> BoardgameList { get; set; } = new();
+		public ObservableCollection<Boardgame> BoardgameList { get; set; } = new();
 
 		#region Methods
-		//private async Task Initialize()
-		//{
-		//	var boardgames = await _database.GetBoardgames();
-		//	foreach (var boardgame in boardgames)
-		//	{
-		//		BoardgameList.Add(boardgame);
-		//	}
-		//}
-
-		public async Task ReloadData()
-		{
-			var boardgames = await _database.GetBoardgames();
-			BoardgameList.Clear();
-			foreach (var boardgame in boardgames)
-			{
-				BoardgameList.Add(boardgame);
-			}
-		}
-
 		[RelayCommand]
 		public async Task AddBoardgame()
 		{
@@ -71,7 +52,7 @@ namespace MauiBoardgameCafeApp.ViewModels
 				MinimumAge = NewMinimumAge,
 				CountAvailable = NewCountAvailable,
 				CountInUse = NewCountInUse,
-				Ratings = NewRatings,
+				LatestRating = NewLatestRating,
 				CountRatings = NewCountRatings
 			};
 			var inserted = await _database.AddBoardgame(newBoardgame);

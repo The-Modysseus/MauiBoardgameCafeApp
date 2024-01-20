@@ -1,4 +1,5 @@
 ﻿using MauiBoardgameCafeApp.Views;
+using MauiBoardgameCafeApp.Data;
 
 namespace MauiBoardgameCafeApp
 {
@@ -9,6 +10,12 @@ namespace MauiBoardgameCafeApp
 			InitializeComponent();
 
 			MainPage = new NavigationPage(new MainView());
+		}
+
+		protected override async void OnStart()
+		{
+			base.OnStart();
+			await Database.CreateAsync();
 		}
 	}
 }
